@@ -1,19 +1,19 @@
-#format = """
-#[╭─user───❯](bold blue) $username
-#[┣─system─❯](bold yellow) $hostname
-#[┣─project❯](bold red) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
-#[╰─cmd────❯](bold green) 
-#"""
+format = """
+[╭─❯](black) $username  $hostname
+[┣─❯](black)   $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$nodejs$bun
+[╰──   ](bold black)
+"""
 [username]
 style_user = "green bold"
 style_root = "red bold"
-format = "[$user]($style) "
+format = "  [$user]($style) "
 disabled = false
-show_always = false
+show_always = true
 
 [hostname]
+style="bold white"
 ssh_only = false
-format = '▲ '
+format = " iMac"
 trim_at = "."
 disabled = false
 
@@ -27,7 +27,7 @@ error_symbol = "[✗](bold red)"
 read_only = "  "
 truncation_length = 10
 truncate_to_repo = true # truncates directory to root folder if in github repo
-style = "bold italic blue"
+style = "bold blue"
 
 [cmd_duration]
 min_time = 4
@@ -127,3 +127,7 @@ symbol = "󰎙"
 format = "❯ $symbol Node.JS [$version](bold green) "
 detect_files = ["package.json", ".node-version"]
 detect_folders = ["node_modules"]
+
+[bun]
+symbol = " "
+format = "❯ $symbol Bun [$version](bold green) "
